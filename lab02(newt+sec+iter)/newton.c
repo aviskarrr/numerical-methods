@@ -15,10 +15,11 @@ int main() {
     int step = 1, N; //int step = 1; int n;
 
     /* Inputs */
-    
+
     printf("\nEnter initial guess:\n");
     scanf("%f", &x0);
     printf("Enter tolerable error:\n");
+
     scanf("%f", &e);
     printf("Enter maximum iterations:\n");
     scanf("%d", &N);
