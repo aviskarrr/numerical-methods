@@ -51,8 +51,6 @@
 //     return 0;
 // }
 
-
-
 #include<stdio.h>
 #include<math.h>
 double bisec_fun(double x){
