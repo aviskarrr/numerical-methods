@@ -33,7 +33,7 @@ int main() {
                 p = p * (xp - x[j]) / (x[i] - x[j]);
             }
         }
-        yp = yp + p * y[i]; // Corrected line
+        yp = yp + p * y[i]; 
     }
     printf("The value of y at x = %lf is %lf\n", xp, yp);
     return 0;
