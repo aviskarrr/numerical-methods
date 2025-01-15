@@ -11,7 +11,7 @@ double fd2 (double x, double y){
 
 
 void qnnob(){
-    double x0 = 1, y0 = 1.2, xn = 1.05, h = 0.001;
+    double x0 = 1, y0 = 1.2, xn = 1.05, h = 0.01;
     //ans at h = 0.05 is 1.277690
     //ans at h = 0.001 is 
     int n = (int)((xn-x0)/h);

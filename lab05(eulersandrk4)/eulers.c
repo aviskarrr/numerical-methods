@@ -10,7 +10,7 @@ double fd(double x) {
 }
 
 int main() {
-    double x0 = 1, y0 = 2, xn = 2.5, h = 0.5;
+    double x0 = 1, y0 = 2, xn = 2.5, h = 0.0001;
     int n = (int)((xn - x0) / h);
     double x = x0, y = y0;
 
