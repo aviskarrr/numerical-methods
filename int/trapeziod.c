@@ -1,0 +1,127 @@
+#include<stdio.h>
+#include<math.h>
+
+double f(double x){
+    return x*x;
+}
+
+double com_trapezoid(double a, double b, int n){
+    double h = (b-a)/n;
+    double integral = 0.0;
+    integral += f(a)+ f(b);
+    for (int i= 1; i<n;i++){
+        double x = a+ i*h;
+        integral += 2*f(x);
+    }
+
+    integral*=(h/2.0);
+    return integral;
+}
+
+double simple_trapezoid(double a, double b) {
+    double h = b - a; 
+    double integral = (h / 2.0) * (f(a) + f(b)); 
+    return integral;
+}
+
+
+double com_simpson1by3(double a, double b, int n){
+    if(n%2!= 0){
+        printf("\n n must be even\n");
+        return 0;
+    }
+
+    double h = (b-a)/n;
+    double integral = 0.0;
+    integral += f(a)+ f(b);
+    for (int i = 1;i<n;i+=2){
+        double x = a+ i*h;
+        integral += 4*f(x);
+    }
+
+    for (int i = 2;i<n;i+=2){
+        double x = a+ i*h;
+        integral += 2*f(x);
+    }
+
+    integral*=(h/3.0);
+
+    return integral;
+}
+
+
+double simple_simpson(double a, double b) {
+    double midpoint = (a + b) / 2.0;
+    double integral = (b - a) / 6.0 * (f(a) + 4 * f(midpoint) + f(b)); 
+}
+
+
+double com_simpson3by8(double a, double b, int n){
+    if(n%3!= 0){
+        printf("\n n must be multiple of 3\n");
+        return 0;
+    }
+
+    double h = (b-a)/n;
+    double integral = 0.0;
+    integral += f(a)+ f(b);
+
+    for (int i = 1;i<n;i+=3){
+        double x = a+ i*h;
+        integral += 3*f(x);
+    }
+
+    for (int i = 2;i<n;i+=3){
+        double x = a+ i*h;
+        integral += 3*f(x);
+    }
+
+    for (int i = 3;i<n;i+=3){
+        double x = a+ i*h;
+        integral += 2*f(x);
+    }
+
+    integral*=(3*h/8.0);
+
+    return integral;
+}
+
+double simple_simpson_3_8(double a, double b) {
+    double x1 = (a + b) / 3.0; 
+    double x2 = (2 * a + b) / 3.0; 
+
+
+    double integral = (b - a) / 8.0 * (f(a) + 3 * f(x1) + 3 * f(x2) + f(b));
+
+    return integral;
+}
+
+int main(){
+    double a, b;
+
+    int n;
+    
+    printf("\n Please enter the lower limit of the integral: ");
+    scanf("%lf", &a);
+    printf("\n Please enter the upper limit of the integral: ");
+    scanf("%lf", &b);
+    printf("\n Please enter the number of subintervals(trapeziods)(n): ");
+    scanf("%d", &n);
+
+    double result_trap1 = com_trapezoid(a, b, n);
+    double result_trap2 = simple_trapezoid(a, b);
+    double result_simpson_1by3_1 = com_simpson1by3(a, b, n);
+    double result_simpson_1by3_2 = simple_simpson(a, b);
+    double result_simpson_3by8_1 = com_simpson3by8(a, b, n);
+    double result_simpson_3by8_2 = simple_simpson_3_8(a, b);
+
+    printf("\n (composite trap)the approximate value of integral is %lf\n", result_trap1);
+    printf("\n (simple trap)the approximate value of integral is %lf\n", result_trap2);
+    printf("\n (composite simpson 1/3)the approximate value of integral is %lf\n", result_simpson_1by3_1);
+    printf("\n (simple simpson 1/3)the approximate value of integral is %lf\n", result_simpson_1by3_2);
+    printf("\n (composite simpson 3/8)the approximate value of integral is %lf\n", result_simpson_3by8_1);
+    printf("\n (simple simpson 3/8)the approximate value of integral is %lf\n", result_simpson_3by8_2);
+
+    return 0;
+}
+
