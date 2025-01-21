@@ -50,9 +50,10 @@ double com_simpson1by3(double a, double b, int n){
 }
 
 
-double simple_simpson(double a, double b) {
+double simple_simpson1_by_3(double a, double b) {
     double midpoint = (a + b) / 2.0;
-    double integral = (b - a) / 6.0 * (f(a) + 4 * f(midpoint) + f(b)); 
+    double integral = (b - a) / 6.0 * (f(a) + 4 * f(midpoint) + f(b));
+    return integral; 
 }
 
 
@@ -111,7 +112,7 @@ int main(){
     double result_trap1 = com_trapezoid(a, b, n);
     double result_trap2 = simple_trapezoid(a, b);
     double result_simpson_1by3_1 = com_simpson1by3(a, b, n);
-    double result_simpson_1by3_2 = simple_simpson(a, b);
+    double result_simpson_1by3_2 = simple_simpson1_by_3(a, b);
     double result_simpson_3by8_1 = com_simpson3by8(a, b, n);
     double result_simpson_3by8_2 = simple_simpson_3_8(a, b);
 
