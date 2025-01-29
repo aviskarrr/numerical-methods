@@ -2,7 +2,7 @@
 #include<math.h>
 
 double f(double x){
-    return x*x;
+    return 1+pow(x,3);
 }
 
 double com_trapezoid(double a, double b, int n){
@@ -16,6 +16,12 @@ double com_trapezoid(double a, double b, int n){
 
     integral*=(h/2.0);
     return integral;
+
+    //at n = 4, I = 4.79
+    // at n = 8, I = 4.76
+    // at n = 15, I = 4.75
+    // at n = 20, I = 4.75
+    // given function = 1+x^3
 }
 
 double simple_trapezoid(double a, double b) {
