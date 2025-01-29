@@ -53,6 +53,14 @@ double com_simpson1by3(double a, double b, int n){
     integral*=(h/3.0);
 
     return integral;
+
+    // for n = 4, I = 4.75
+    // for n = 8, I = 4.75
+    // for n = 16, I = 4.75
+    // for n = 20, I = 4.75
+    // given function = 1+x^3
+    //note this is only for even no of subintervals
+
 }
 
 
