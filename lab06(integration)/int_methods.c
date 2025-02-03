@@ -28,6 +28,7 @@ double simple_trapezoid(double a, double b) {
     double h = b - a; 
     double integral = (h / 2.0) * (f(a) + f(b)); 
     return integral;
+    //
 }
 
 
@@ -99,6 +100,13 @@ double com_simpson3by8(double a, double b, int n){
     integral*=(3*h/8.0);
 
     return integral;
+
+    // for n = 6, I = 4.75
+    // for n = 9, I = 4.75
+    // for n = 12, I = 4.75
+    // for n = 15, I = 4.75
+    //conclusion: for n = 3k, I = 4.75
+    //why it didnt improved increasing n? -> because the function is cubic, so the simpson 3/8 rule is exact for cubic functions
 }
 
 double simple_simpson_3_8(double a, double b) {
