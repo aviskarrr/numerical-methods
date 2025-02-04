@@ -72,34 +72,28 @@ double simple_simpson1_by_3(double a, double b) {
 }
 
 
-double com_simpson3by8(double a, double b, int n){
-    if(n%3!= 0){
-        printf("\n n must be multiple of 3\n");
-        return 0;
+double com_simpson3by8(double a, double b, int n) {
+    if (n % 3 != 0) {
+        printf("\nError: n must be a multiple of 3 for Simpson's 3/8 rule.\n");
+        return NAN;
     }
 
-    double h = (b-a)/n;
-    double integral = 0.0;
-    integral += f(a)+ f(b);
+    double h = (b - a) / n;
+    double integral = f(a) + f(b);
 
-    for (int i = 1;i<n;i+=3){
-        double x = a+ i*h;
-        integral += 3*f(x);
+    for (int i = 1; i < n; i++) {
+        double x = a + i * h;
+        if (i % 3 == 0) {
+            integral += 2 * f(x);  // Multiples of 3 get coefficient 2
+        } else {
+            integral += 3 * f(x);  // Others get coefficient 3
+        }
     }
 
-    for (int i = 2;i<n;i+=3){
-        double x = a+ i*h;
-        integral += 3*f(x);
-    }
-
-    for (int i = 3;i<n;i+=3){
-        double x = a+ i*h;
-        integral += 2*f(x);
-    }
-
-    integral*=(3*h/8.0);
-
+    integral *= (3 * h / 8.0);
     return integral;
+}
+
 
     // for n = 6, I = 4.75
     // for n = 9, I = 4.75
@@ -107,7 +101,7 @@ double com_simpson3by8(double a, double b, int n){
     // for n = 15, I = 4.75
     //conclusion: for n = 3k, I = 4.75
     //why it didnt improved increasing n? -> because the function is cubic, so the simpson 3/8 rule is exact for cubic functions
-}
+
 
 double simple_simpson_3_8(double a, double b) {
     double x1 = (a + b) / 3.0; 
