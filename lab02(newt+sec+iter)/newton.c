@@ -2,17 +2,15 @@
 #include <math.h>
 #include <stdlib.h>
 
-/* Defining equation to be solved.
-   Change this equation to solve another problem. */
+
 #define f(x) (x*x - 4*x - 10)
 
-/* Defining derivative of f(x).
-   As you change f(x), change this function also. */
+
 #define g(x) (2*x -4)
 
 int main() {
     float x0, x1, f0, f1, g0, e;
-    int step = 1, N; //int step = 1; int n;
+    int step = 1, N; 
 
     /* Inputs */
 

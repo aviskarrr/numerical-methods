@@ -68,8 +68,8 @@ int main(){
     printf("Enter two initial guesses:\n");
     while(1){
         scanf("%lf%lf", &x1, &x2);
-        f1 = bisec_fun2(x1);
-        f2 = bisec_fun2(x2);
+        f1 = bisec_fun(x1);
+        f2 = bisec_fun(x2);
         if(f1*f2 > 0){
             printf("Incorrect initial guesses. They must bracket the root.\n");
             printf("Enter two new initial guesses:\n");
@@ -84,7 +84,7 @@ int main(){
     printf("\nstep\t\tx1\t\tx2\t\tx0\t\tf(x0)\n");
     do{
         x0 = (x1+x2)/2;
-        f0 = bisec_fun2(x0);
+        f0 = bisec_fun(x0);
         printf("%d\t\t%.6f\t%.6f\t%.6f\t%.6f\n", step, x1, x2, x0, f0);
         if(f1*f0 > 0){
             x1 = x0;
