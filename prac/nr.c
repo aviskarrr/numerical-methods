@@ -34,6 +34,6 @@ int main(){
             exit(1);
         }
 
-    }while(fabs(f0)>e);
+    }while(fabs(f1)>e);
     return 0;
 }
