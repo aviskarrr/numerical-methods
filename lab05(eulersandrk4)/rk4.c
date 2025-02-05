@@ -19,8 +19,8 @@ void qnnob(){
 
     for (int i = 0; i<n; i++){
         double k1 = h*fd2(x, y);
-        double k2 = h*fd2(x+h/2, k1/2);
-        double k3 = h*fd2(x+h/2, k2/2);
+        double k2 = h*fd2(x+h/2, y+ k1/2);
+        double k3 = h*fd2(x+h/2, y+ k2/2);
         double k4 = h*fd2(x+h, y+k3);
         y = y + (k1 + 2*k2 + 2*k3 + k4)/6;
         x = x +h;
